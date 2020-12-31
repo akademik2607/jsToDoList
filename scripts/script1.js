@@ -20,6 +20,7 @@ class Todo {
         this.todoCompleted.textContent = '';
         this.todoData.forEach(this.createItem.bind(this));
         this.addToStorage();
+
     }
 
     createItem(todo){
@@ -48,9 +49,11 @@ class Todo {
                 completed: false,
                 key: this.generateKey(),
             }
-            this.render();
             this.todoData.set(newTodo.key, newTodo);
+            this.render();
+            this.input.value = '';
         }
+
         else{
             alert("Пустое дело добавлять нельзя!");
         }
